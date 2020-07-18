@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html>
+    <style type="text/css">
+    .title-bar {
+        background: #689F38;
+        padding: 0.9rem;
+        margin-top: -1rem;
+      }
+      
+      .top-bar {
+        background: #689F38;
+        color: #ffffff;
+        margin-top: -1rem;
+      }
+      .top-bar ul {
+        background: #689F38;
+      }
+      .top-bar-right ul li {
+         list-style-type: none;
+         text-align: right;
+         padding: 0.2rem;
+         border-top: 0.1rem solid #8BC34A;
+      
+       }
+       .top-bar-right ul li:first-child {
+         border-top: none;
+       }
+      .top-bar ul li a {
+        color: #ffffff;
+          transition: color 0.5s ease; 
+      }
+      .top-bar ul li a:hover {
+        color: #7c4dff;  /*deep purple;*/
+      }
+      li.is-submenu-item.is-accordion-submenu-item {
+          background-color: #689F38;
+      }
+      .is-accordion-submenu-parent > a::after {
+        border-color: #ffffff transparent transparent;
+        right: 0;
+      }
+      
+      /* general */
+      body {
+        background-color: #8BC34A;
+        color: #212121;
+      }
+      .welcome {
+        margin: 1.5rem 0;
+        color: #ffffff;
+      }
+      
+      #quizNotify.message {
+        margin: 1.5rem;
+          padding: 1.5rem;
+          background-color: #689F38;
+        color: #ffffff;
+      }
+      #message {
+        margin: 0 0 1.5rem 0;
+        color: #ffffff;
+        border-radius: 0.5rem;
+      }
+      #notify {
+        color: #212121;
+      }
+      .results {
+        margin: 1rem 0;
+        color: #000000;
+      }
+      .red {
+        color: #f5543a;
+      }
+      .green {
+        color: #b4f36b;
+      }
+      
+      /*styling of radiobuttons: credit due to Tristan White (https://codepen.io/triss90/pen/XNEdRe) */
+      
+      /*.answer div { */
+      .radio {
+      }
+      .radio input[type="radio"] {
+              position: absolute;
+              opacity: 0;
+      }
+      .radio input[type="radio"] + .radio-label:before  {
+              content: '';
+              background: #f4f4f4;
+              border-radius: 100%;
+              border: 1px solid #b4b4b4;
+              display: inline-block;
+              width: 1.6em;
+              height: 1.6em;
+              position: relative;
+             top: -0.2em;
+                      left: -1rem;
+              margin-right: 1em;
+              vertical-align: top;
+              cursor: pointer;
+              text-align: center;
+              transition: all 250ms ease;
+      }
+      .radio input[type="radio"]:checked + .radio-label:before {
+              background-color: #7c4dff;
+              box-shadow: inset 0 0 0 4px #f4f4f4;
+      }
+      .radio input[type="radio"]:focus + .radio-label:before  {
+              outline: none;
+              border-color: #7c4dff;
+      }
+      .radio input[type="radio"]:disabled + .radio-label:before  {
+              box-shadow: inset 0 0 0 4px #f4f4f4;
+              border-color: darken(#f4f4f4, 25%);
+                      border-color: #b4b4b4;
+      }
+      .radio input[type="radio"]:empty + .radio-label:before {
+              margin-right: 0;
+      }
+      
+      
+      input[type="text"], input[type="password"] {
+        margin-bottom: 0.1rem;
+      }
+      input[type="button"], input[type="submit"] {
+        border: none;
+        border-radius: 5rem;
+        background-color: #7c4dff;  /*deep purple*/
+        padding: 1.0rem 1.0rem;
+        margin-right: 1rem;
+          transition: background-color 0.5s ease;  
+      }
+      input[type="button"]:focus, input[type="submit"]:focus {
+        outline:0;
+      }
+      input[type="button"]:hover, input[type="submit"]:hover {
+        color: #000000;
+        background-color: #FFC107;  /*amber*/
+      }
+      input#deleteBtn {
+          float: right;
+          background-color: #FFC107; /*amber;*/
+          margin-top: 2rem;
+      }
+      input#deleteBtn:hover {
+        color: #ffffff;
+        background-color: #7c4dff;  /*deep purple*/
+      }
+      label {
+        text-align: left;
+        font-weight: bold;
+      }
+      
+      .buttons {
+        padding: 1rem;
+        font-size: smaller;
+        font-weight: bold;
+        margin: 0.5rem 0 2rem 0;
+      }
+      
+      /* login section */
+      .loginMain {
+        margin-top: 1.5rem;
+        padding: 0.5rem;
+      }
+      .login, .submit {
+        margin: 0rem 1.5rem 1.5rem 1.5rem;
+      }
+      
+      .warning {
+        font-weight: bold;
+        color: #D32F2F;
+      }
+      .submit {
+        margin: 1rem 1.5rem;
+        color: #ffffff;
+      }
+      .notify {
+        margin: 1rem 1.5rem;
+        font-weight: bold;
+        color: #D32F2F;
+      }
+      
+      /* quiz section */
+      .callout {
+        background-color: #DCEDC8;
+        border: 1rem solid #FFC107;
+        border-radius: 1.8rem;
+        margin: 2.5rem 0;
+      }
+      .main, .quizButtons {
+          margin: 1rem 2rem;
+      }
+      .main h3 {
+        margin-bottom: 1.5rem;
+      }
+      .main div {
+          margin: 0 0 0.7rem 0.5rem;
+      }
+      .answer p{
+        margin-bottom: 0.1rem;
+      }
+      .quizButtons {
+        color: #ffffff;
+        padding: 0;
+      }
+      .quizButton {
+        display: inline-block;
+      }
+      #scoreButton {
+        color: #000000;
+        background-color: #FFC107;  /*amber*/
+      }
+      #scoreButton:hover {
+        color: #FFFFFF;
+        background-color: #7c4dff;  /*deep purple*/
+      }
+      .results {
+        color: #ffffff;
+          margin-top: 1.5rem;
+      }
+      
+      /* score display section */
+      
+      #myScoreDisplay {
+          z-index: 10;
+          position: absolute;
+          right: -20rem;
+          top: 13rem;
+        -webkit-transform: translate(0rem, 0);
+        transform: translate(0rem, 0);
+        transition: transform 0.3s ease;
+      }
+      #myScoreDisplay.slideInMyScore {
+          transform: translate(-20rem,0);
+          -webkit-transform: translate(-20rem,0);
+      }
+      #allScoreDisplay {
+          z-index: 10;
+          position: absolute;
+          right: -20rem;
+          top: 25rem;
+        -webkit-transform: translate(0rem, 0);
+        transform: translate(0rem, 0);
+        transition: transform 0.3s ease;
+      }
+      #allScoreDisplay.slideInAllScores {
+          transform: translate(-20rem,0);
+          -webkit-transform: translate(-20rem,0);
+      }
+      #showUserScores, #showAllUsersScores {
+        margin: 1rem;
+        padding: 1rem 1.5rem;
+          color: #ffffff;
+          background: #7c4dff;  /*deep purple;*/
+        border-radius: 2rem;
+      }
+       #showAllUsersScores{
+         width: 18rem;
+       }
+      .ranking {
+        background-color: #8BC34A;  /*default-primary-color*/
+        border: 1rem solid #689F38;  /*dark-primary-color*/
+      }
+      .ranking h4 {
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+      .emphasis {
+        padding: 0.5rem;
+        background-color: #FFC107;  /*amber*/
+        text-transform: uppercase;;
+      }
+      p.scores  {
+        color: #ffffff;
+      }
+    
+      p.emphasis {
+        color: #7c4dff;  /*deep purple */
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      p span {
+        display: inline-block;
+        float: right;
+      }
+      
+      
+      /*  progress-bar   */
+      #progressBar {
+        margin: 1rem;
+      }
+      .progress {
+          background-color: #ffffff;
+          height: 1.8rem;
+          border-radius: 3rem;
+      	padding: 0 0.5rem;
+      }
+      .progress-meter {
+          background-color: #689F38;
+          border-radius: 3rem;
+      }
+      .progress-meter-text {
+          color: #000000;
+      }
+      /* p.progress-meter-text {
+          color: #000000;
+      }  */
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      /* ==========================================================================
+         Helper classes
+         ========================================================================== */
+      
+      /*
+       * Hide visually and from screen readers
+       */
+      
+      .hidden {
+          display: none !important;
+      }
+      
+      /*
+       * Hide only visually, but have it available for screen readers:
+       * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+       */
+      
+      .visuallyhidden {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+      }
+      
+      /*
+       * Extends the .visuallyhidden class to allow the elrement
+       * to be focusable when navigated to via the keyboard:
+       * https://www.drupal.org/node/897638
+       */
+      
+      .visuallyhidden.focusable:active,
+      .visuallyhidden.focusable:focus {
+          clip: auto;
+          height: auto;
+          margin: 0;
+          overflow: visible;
+          position: static;
+          width: auto;
+      }
+      
+      /*
+       * Hide visually and from screen readers, but maintain layout
+       */
+      
+      .invisible {
+          visibility: hidden;
+      }
+      
+      /*
+       * Clearfix: contain floats
+       *
+       * For modern browsers
+       * 1. The space content is one way to avoid an Opera bug when the
+       *    `contenteditable` attribute is included anywhere else in the document.
+       *    Otherwise it causes space to appear at the top and bottom of elrements
+       *    that receive the `clearfix` class.
+       * 2. The use of `table` rather than `block` is only necessary if using
+       *    `:before` to contain the top-margins of child elrements.
+       */
+      
+      .clearfix:before,
+      .clearfix:after {
+          content: " "; /* 1 */
+          display: table; /* 2 */
+      }
+      
+      .clearfix:after {
+          clear: both;
+      }
+      
+      /* ==========================================================================
+         EXAMPLE Media Queries for Responsive Design.
+         These examples override the primary ('mobile first') styles.
+         Modify as content requires.
+         ========================================================================== */
+      @media only screen and (max-width: 34,995rem) {
+      
+        li.is-submenu-item.is-accordion-submenu-item {
+            background-color: #689F38;
+        }
+        .top-bar-right ul li {
+           background: #8BC34A;
+         }
+      
+      }
+      
+      @media only screen and (min-width: 35rem) {
+        /* Style adjustments for viewports that meet the condition */
+      
+        .top-bar-left ul li {
+          font-size: 1.5rem;
+        }
+        .top-bar-right ul li {
+          border-top: 0rem;
+        }
+        .dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after {
+          border-color: #ffffff transparent transparent;
+        }
+        #myScoreDisplay {
+            top: 5rem;
+        }
+        #allScoreDisplay {
+            top: 5rem;
+        }
+        #allScoreDisplay.slideInAllScores {
+            transform: translate(-33rem,0);
+            -webkit-transform: translate(-33rem,0);
+        }
+      
+      }
+      
+      @media print,
+             (-webkit-min-device-pixel-ratio: 1.25),
+             (min-resolution: 1.25dppx),
+             (min-resolution: 120dpi) {
+          /* Style adjustments for high resolution devices */
+      }
+      
+      /* ==========================================================================
+         Print styles.
+         Inlined to avoid the additional HTTP request:
+         https://www.phpied.com/delay-loading-your-print-css/
+         ========================================================================== */
+      
+      @media print {
+          *,
+          *:before,
+          *:after,
+          *:first-letter,
+          *:first-line {
+              background: transparent !important;
+              color: #000 !important; /* Black prints faster:
+                                         http://www.sanbeiji.com/archives/953 */
+              box-shadow: none !important;
+              text-shadow: none !important;
+          }
+      
+          a,
+          a:visited {
+              text-decoration: underline;
+          }
+      
+          a[href]:after {
+              content: " (" attr(href) ")";
+          }
+      
+          abbr[title]:after {
+              content: " (" attr(title) ")";
+          }
+      
+          /*
+           * Don't show links that are fragment identifiers,
+           * or use the `javascript:` pseudo protocol
+           */
+      
+          a[href^="#"]:after,
+          a[href^="javascript:"]:after {
+              content: "";
+          }
+      
+          pre,
+          blockquote {
+              border: 1px solid #999;
+              page-break-inside: avoid;
+          }
+      
+          /*
+           * Printing Tables:
+           * http://css-discuss.incutio.com/wiki/Printing_Tables
+           */
+      
+          thead {
+              display: table-header-group;
+          }
+      
+          tr,
+          img {
+              page-break-inside: avoid;
+          }
+      
+          img {
+              max-width: 100% !important;
+          }
+      
+          p,
+          h2,
+          h3 {
+              orphans: 3;
+              widows: 3;
+          }
+      
+          h2,
+          h3 {
+              page-break-after: avoid;
+          }
+      }
+    </style>
+
+    <body>
+        <noscript>
+          <p>This page requires a JavaScript-enabled browser.</p>
+        </noscript>
+    
+    
+      <!-- TOP AND TITLE BAR    -->
+          <div data-sticky-container>
+            <div class="small-12 sticky" data-sticky data-sticky-on="small" >
+    
+              <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+                <button class="menu-icon" type="button" data-toggle></button>
+                <div class="title-bar-title">Flogging a Dead Horse Quiz</div>
+              </div>
+    
+              <div class="top-bar" id="main-menu">
+                <div id="topBarLeft" class="top-bar-left">
+                  <ul class=" menu hide-for-small-only" data-dropdown-menu>
+                    <li class="menu-text">Flogging a Dead Horse</li>
+                  </ul>
+                </div>
+    
+                <div id="topBarRight" class="top-bar-right">
+                  <ul class="menu accordion-menu vertical medium-horizontal" data-responsive-menu="accordion medium-dropdown">
+                    <li><a id="user" class="" href="#">username</a></li>
+                    <li><a id="myScores" href="#" data-toggle="myScoreDisplay">Show my scores</a></li>
+                    <li><a id="everyoneScores" href="#" data-toggle="allScoreDisplay">Show all scores</a></li>
+                    <li><a id="logout" href="#">Log out</a></li>
+    
+                  </ul>
+                </div>
+              </div>
+    
+                    <!--  SCORE DISPLAY  -->
+              <div id="myScoreDisplay" class="row " data-toggler=".slideInMyScore">
+                <div id="showUserScores" class=""></div>
+    
+              </div>
+              <div id="allScoreDisplay" class="row " data-toggler=".slideInAllScores">
+                <div id="showAllUsersScores" class=""></div>
+              </div>
+    
+    
+            </div>
+          </div>
+    
+    <!--end TOP AND TITLE BAR    -->
+    
+    <!-- LOGIN    -->
+    
+       <div class="row">
+          <div class="welcome large-12 columns">
+            <h4 id="welcome">Please log in to do the quiz! <br> First time here? Create an account</h4>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div id="login" class="loginMain large-6 medium-6 small-12 columns ">
+            <form id="" action="" class="loginForm" name="loginForm">
+              <div class="row">
+                <div class="login">
+                  <div>
+                    <label>Username</label>
+                    <input type="text" id="userName" name="userName" placeholder="Username" autofocus="true"/>
+                  </div>
+    
+                  <div class="warning">
+                    <small id="userWarning" class=""></small>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row">
+                <div class="login">
+                  <div>
+                    <label>Password</label>
+                    <input type="password" id="passWord" name="passWord" placeholder="Password"/>
+                  </div>
+    
+                  <div class="warning">
+                    <small id="passWarning" class=""></small>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row">
+                <div class="submit">
+                  <input type="submit" id="loginBtn" class="buttons" value="Login" />
+                  <input type="submit" id="accountBtn" class="buttons" value="Create Account " />
+                  <input type="submit" id="deleteBtn" class="buttons" value="Delete Account " />
+                </div>
+                <div class="notify">
+                  <small id="accountNotify" class=""></small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+    <!-- end LOGIN   -->
+    
+    <!-- QUIZ   -->
+    
+        <div class="row">
+          <div id ="quizContainer" class="callout default-primary-color medium-8 small-12 columns">
+    
+            <!-- message and start area  -->
+            <div class="row">
+              <div id="quizNotify"class="message small-11 columns">
+                 <h4 id="message"></h4>
+                 <div class="quizButtons large-10 medium-10 medium-push-1 columns">
+                    <div class="quizButton large-2">
+                      <input type="button" id="startButton" class="buttons" value="Start quiz" />
+                      <input type="button" id="resumeButton" class="buttons" value="Resume quiz" />
+                    </div>
+                 </div>
+                 <div id="results" class="results"></div>
+              </div>
+            </div>
+    
+            <!-- quiz question area  -->
+            <div class="row">
+              <div id="formContainer" class="main">
+                <form id="form1" class="answer" action="" name="form1">
+                </form>
+              </div>
+            </div>
+    
+            <!-- quiz buttons area  -->
+            <div class="row">
+              <div id="quizButtons" class="quizButtons large-10 medium-10 columns">
+                <div id="previous"  class="quizButton large-2">
+                  <input type="button" id="prevButton" class="buttons" value="Previous" />
+                </div>
+                <div id="next"  class="quizButton large-2">
+                  <input type="button" id="nextButton" class="buttons" value="Next" />
+                </div>
+                <div id="score" class="quizButton large-2">
+                  <input type="button" id="scoreButton" class="buttons" value="Show Score" />
+                </div>
+              </div>
+            </div>
+    
+            <!-- warning message area  -->
+                    <div class="row large-10 medium-10 columns">
+                                <!-- warning in case question is not answered  -->
+                    <div class="warning">
+                  <small id="warning" class=""></small>
+                </div>
+                    </div>
+    
+            <!-- progress bar area  -->
+            <div id="progressBar" class="">
+                      <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuetext="0 out of quizLength" aria-valuemax="3">
+                <span id="progressMeter" class="progress-meter" style="width: 25%">
+                  <p id="progressMeterText" class="progress-meter-text"> </p>
+                </span>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    <!-- end QUIZ   -->
+    
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>  
+      
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.4-rc2/foundation.min.js"></script>  
+    
+        </body>
+
+</html>
+
+
+<script type="text/javascript">
+$(document).foundation()
+
+if (Modernizr.localstorage) {
+  // window.localStorage is available!
+} else {
+  alert("no native support for HTML5 storage: (maybe try dojox.storage or a third-party solution ");
+}
+
+(function() { 
+var playerArray = [];
+localStorage.setItem("playerArray", JSON.stringify(playerArray));
+
+var topBarLeft = document.getElementById("topBarLeft"),
+    topBarRight = document.getElementById("topBarRight"),
+    user = document.getElementById("user"),
+    total = document.getElementById("total"),
+    logout = document.getElementById("logout");
+
+var welcome = document.getElementById("welcome");
+
+var login = document.getElementById("login"),
+    loginForm = document.loginForm,
+    input1 = document.getElementById("userName"),
+    userWarning = document.getElementById("userWarning"),
+    input2 = document.getElementById("passWord"),
+    passWarning = document.getElementById("passWarning");
+
+var loginBtn = document.getElementById("loginBtn"),
+    accountBtn = document.getElementById("accountBtn"),
+    deleteBtn = document.getElementById("deleteBtn");
+
+var actualPlayer = null,
+    playerString = localStorage.getItem("playerArray"),
+    playerArray = JSON.parse(playerString);
+
+var message = document.getElementById("message");
+var results = document.getElementById("results");
+
+var startButton = document.getElementById("startButton"),
+    quizContainer = document.getElementById("quizContainer"),
+    quizNotify  = document.getElementById("quizNotify");
+ 
+var allQuestions =  [
+  {
+    "question":"Who is President of the United States?",
+    "choices":["Donald Trump","Hillary Clinton","Barack Obama","George W. Bush"],
+    "correctAnswer":0
+  },
+  {
+    "question":"Who is Prime Minister of the United Kingdom?",
+    "choices":["David Cameron","Gordon Brown","Theresa May","Tony Blair"],
+    "correctAnswer":2
+  },
+  {
+    "question":"Who is Prime Minister of the Netherlands?",
+    "choices":["Diederik Samson","Marc Rutte","Geert Wilders","Alexander Pechtold"],
+    "correctAnswer":1
+  },
+  {
+    "question":"In which city does the Dutch government reside?",
+    "choices":["Rotterdam","Amsterdam","The Hague","Utrecht"],
+    "correctAnswer":2
+  }
+  ];
+
+var quizLength = 0,
+    choices = [] ,
+    index = 0,
+    formContainer = document.getElementById("formContainer"),
+    form = document.form1,
+    warning = document.getElementById("warning");
+
+var quizButtons = document.getElementById("quizButtons"),
+    prevButton = document.getElementById("prevButton"),
+    nextButton = document.getElementById("nextButton"),
+    scoreButton = document.getElementById("scoreButton");
+
+var myScoreDisplay = document.getElementById("myScoreDisplay"),
+    allScoreDisplay = document.getElementById("allScoreDisplay"),
+    myScores = document.getElementById("myScores"),
+    everyoneScores = document.getElementById("everyoneScores"),
+    mineHidden = true,
+    allHidden = true;
+
+var progressBar = document.getElementById("progressBar");
+var progressMeter = document.getElementById("progressMeter");
+var progressMeterText = document.getElementById("progressMeterText");
+
+topBarRight.classList.add("hide");
+quizContainer.classList.add("hide");
+quizButtons.classList.add("hide");
+myScoreDisplay.classList.remove("hide");
+
+progressBar.classList.add("hide");
+progressBar.setAttribute("aria-valuemax", quizLength);
+
+loginBtn.addEventListener("click", checkForm);
+accountBtn.addEventListener("click", checkForm);
+deleteBtn.addEventListener("click", checkForm);
+
+myScores.addEventListener("click", showUserScores);
+everyoneScores.addEventListener("click", showAllUsersScores);
+
+logout.addEventListener("click", logOut);
+startButton.addEventListener("click", startQuiz);
+resumeButton.addEventListener("click", startQuiz);
+
+prevButton.addEventListener("click", previousQuestion);
+nextButton.addEventListener("click", nextQuestion);
+scoreButton.addEventListener("click", showScore);
+
+localStorage.setItem("allQuestions",  JSON.stringify(allQuestions));
+
+input1.value = "";
+input2.value = "";
+
+/* this only works on my local server
+// thanks to https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+// this function loads the quiz questions from external JSON file
+function loadJSON(callback) {
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', 'http://localhost/quiz-web-app/js/quizQuestionsRemote.json', true);
+
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState === 4 && xobj.status === 200) {     
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);
+}
+
+function init() {
+
+  loadJSON(function(response) {
+    // Parse JSON string into object
+    allQuestions = JSON.parse(response);
+    localStorage.setItem("allQuestions", response);
+  });
+}
+*/
+
+// clears all messages on the login screen
+function clearMessage() {
+  userWarning.innerHTML = "";
+  passWarning.innerHTML = "";
+  accountNotify.innerHTML = "";
+}
+
+//checks if username and password are entered
+function checkForm(e) {
+  e.preventDefault();
+  clearMessage();
+  var userName = input1.value;
+  var passWord = input2.value;
+
+  if (userName === "" || passWord === "") {
+    if (userName === "") {
+      userWarning.innerHTML = "Please enter your username";
+      loginForm.userName.focus();
+    }
+    else {
+      passWarning.innerHTML = "Please enter your password";
+      loginForm.passWord.focus();
+    }
+  }
+  else {
+    switch (e.target) {
+      case accountBtn:
+        createAccount(userName, passWord);
+        break;
+      case deleteBtn:
+        deleteAccount(userName, passWord);
+        break;
+      default:
+        logIn(userName, passWord);
+    }
+  }
+}
+
+
+function Player(username, password) {
+  this.userName = username;
+  this.passWord = password;
+  this.storedScores = [];
+  this.total = 0;  
+  this.visits = 0;
+  this.finished = true;
+  // answerAt attribute stores the index of the question that is displayed if the player logs out before finishing the quiz
+  this.answerAt = 0;
+  /* if player logs out before finishing quiz, answers player has already given are stored here.
+  When player logs in again, she doesnt have to give those answers again  */
+  this.storedAnswers = [];
+  this.totalScore = this.getNameAndScore();
+}
+Player.prototype.getNameAndScore = function() {
+    return this.userName + " had scored " + this.total + " points!";
+  }  
+
+function createAccount(username, password) {
+  clearMessage();
+  player = new Player(username, password);
+  playerArray.push(player);
+  localStorage.setItem("playerArray", JSON.stringify(playerArray));
+  accountNotify.innerHTML = "Account created, please enter your username and password";
+  input1.value = "";
+  input2.value = "";
+}
+
+function deleteAccount(username, password) {
+    for (var i = 0; i < playerArray.length; i++) {
+    var player = playerArray[i];
+    if (player.userName === username && player.passWord === password) {
+      var deleted = playerArray.splice(i, 1);
+      accountNotify.innerHTML = player.userName + "'s account is deleted";
+    }
+  }
+  localStorage.setItem("playerArray", JSON.stringify(playerArray));
+  input1.value = "";
+  input2.value = "";
+}
+
+function logIn(username, password) {
+  clearMessage();
+  results.innerHTML = "";
+  
+  myScoreDisplay.classList.remove("hide");
+  allScoreDisplay.classList.remove("hide");
+  var playerString = localStorage.getItem("playerArray");
+  playerArray = JSON.parse(playerString);
+  console.log(playerArray);
+  
+  if (playerArray.length === 0) {
+    passWarning.innerHTML = "Please create an account first";
+    return;
+  }
+
+  for (var i = 0; i < playerArray.length; i++) {
+    var player = playerArray[i];
+    if (player.userName === username && player.passWord === password) {
+      console.log(player);
+      actualPlayer = player;
+      var storedAnswers = actualPlayer.storedAnswers;
+      index = actualPlayer.answerAt;
+
+      login.classList.add("hide");
+      welcome.classList.add("hide");
+      //hides login panel and shows username and logout option
+      topBarRight.classList.remove("hide");
+      user.innerHTML = player.userName;
+      //shows welcome message and startbutton
+      quizContainer.classList.remove("hide");
+      // three parts of quizContainer:
+      quizNotify.classList.remove("hide");
+      formContainer.classList.add("hide");
+      quizButtons.classList.add("hide");
+
+      if (actualPlayer.visits === 0) {
+          message.innerHTML = "Welcome to this quiz, " + actualPlayer.userName + "! <br />Would you like to start?";
+          startButton.classList.remove("hide");
+          resumeButton.classList.add("hide");
+      }
+      else if (actualPlayer.visits > 0) {
+        if (actualPlayer.finished === false) {
+          message.innerHTML = "Welcome back " + actualPlayer.userName + "! <br />You want to finish the quiz?";
+          startButton.classList.add("hide");
+          resumeButton.classList.remove("hide");
+        }
+        else {
+          message.innerHTML = "Welcome back " + actualPlayer.userName + "!<br />Would you like to retake the quiz?";
+          startButton.classList.remove("hide");
+          resumeButton.classList.add("hide");
+        }
+      }
+    }
+    else if (player.userName != username || player.passWord != password){
+      passWarning.innerHTML = "Username or password are not correct, <br>please try again";
+      input1.value = "";
+      input2.value = "";
+      loginForm.userName.focus();
+    }
+    input1.value = "";
+    input2.value = "";
+
+  }
+}
+
+function logOut(e) {
+  e.preventDefault();
+  login.classList.remove("hide");
+  welcome.classList.remove("hide");
+  topBarRight.classList.add("hide");
+  quizContainer.classList.add("hide");
+  progressBar.classList.add("hide");
+  myScoreDisplay.classList.add("hide");
+  allScoreDisplay.classList.add("hide");
+
+  if (actualPlayer.finished) {
+    actualPlayer.storedAnswers.length = 0;
+    actualPlayer.answerAt = 0;
+  }
+  else {
+    actualPlayer.answerAt = index;
+  }
+
+  actualPlayer.visits += 1;
+  localStorage.setItem("playerArray", JSON.stringify(playerArray));
+  userWarning.innerHTML = "";
+  passWarning.innerHTML = "";
+}
+
+function startQuiz() {
+  index = actualPlayer.answerAt;
+  quizNotify.classList.add("hide");
+  quizButtons.classList.remove("hide");
+  progressBar.classList.remove("hide");
+
+  if (actualPlayer.finished) {
+    actualPlayer.storedAnswers.length = 0;  //empty the array
+    actualPlayer.finished = false;
+    index = 0;
+  }
+
+  var stringQuestions = localStorage.getItem("allQuestions");
+  allQuestions = JSON.parse(stringQuestions);
+  quizLength = allQuestions.length;
+  showProgress(index);
+  showQuestion();
+}
+
+function showQuestion() {
+  showQuizButtons();
+  if (index === quizLength) {
+    return;
+  }
+  // display of question at given index:
+  formContainer.classList.remove("hide");
+  form.innerHTML = "";
+  var quizItem = allQuestions[index];
+  var q = document.createElement("h3");
+  var text = document.createTextNode(quizItem.question);
+
+  var storedAnswers = actualPlayer.storedAnswers;
+  var storedAnswer = storedAnswers[index];
+  q.appendChild(text);
+  form.appendChild(q);
+
+  // display of choices, belonging to the questions at given index:
+  choices = allQuestions[index].choices;
+
+  for (var i = 0; i < choices.length; i++) {
+    var div = document.createElement("div");
+		div.classList.add("radio");
+
+    var input = document.createElement("input");
+    input.setAttribute("id", i);
+    input.setAttribute("type", "radio");
+    input.setAttribute("name", "question");
+
+    if (i === quizItem.correctAnswer) {
+      input.setAttribute("value", "1");
+    } else {
+      input.setAttribute("value", "0");
+    }
+    //if question has been answered already
+    if (storedAnswer) {
+      var id = storedAnswer.id;
+      if (i == id) {
+        // if question is already answered, id has a value
+        input.setAttribute("checked", "checked");
+      }
+    }
+
+    //if radiobutton is clicked, the chosen answer is stored in array storedAnswers
+    input.addEventListener("click", storeAnswer);
+
+    var label = document.createElement("label");
+    label.setAttribute("class", "radio-label");
+		label.setAttribute("for", i);
+    var choice = document.createTextNode(choices[i]);
+    label.appendChild(choice);
+
+    div.appendChild(input);
+  	div.appendChild(label);
+    form.appendChild(div);
+  }
+}
+
+function showProgress(index) {
+	 ///update progress bar
+  var increment = Math.ceil((index) / (quizLength) * 100);
+	if (index === 0) {
+		increment = 25;
+		progressMeter.style.background = "#ffffff";
+	}
+	else {
+		progressMeter.style.background = "#689F38";
+	}
+  progressMeter.style.width = (increment) + '%';
+  progressMeterText.innerHTML = (index) + ' out of ' + quizLength;
+}
+
+function storeAnswer(e) {
+    var element = e.target;
+    var answer = {
+      id: element.id,
+      value: element.value
+    };
+    actualPlayer.storedAnswers[index] = answer;
+}
+
+function showQuizButtons() {
+  if(index === 0) {
+    //there is no previous question when first question is shown
+    prevButton.classList.add("hide");
+  }
+  if (index > 0) {
+    prevButton.classList.remove("hide");
+  }
+  if(index === quizLength) {
+    //only if last question is shown user can see the score
+    scoreButton.classList.remove("hide");
+    nextButton.classList.add("hide");
+    //prevButton still visible so user can go back and change answers
+    var h2 = document.createElement("h2");
+    h2.innerHTML = "That's it! Would you like to see your score?";
+    form.appendChild(h2);
+  }
+  else {
+    nextButton.classList.remove("hide");
+    scoreButton.classList.add("hide");
+  }
+}
+
+// http://jsfiddle.net/hvG7k/
+function previousQuestion() {
+  //shows previous question, with chosen answer checked
+  index--;
+  form.innerHTML = "";
+  $("#form1").fadeOut(0, function() {
+    var show = showQuestion();
+    $(this).attr('innerHTML', 'show').fadeIn(300);
+  });
+}
+
+function nextQuestion() {
+  //shows next question only if current question has been answered
+  if (actualPlayer.storedAnswers[index] == null) {
+    warning.innerHTML = "Please choose an answer!";
+    return;
+  }
+  index++;
+  warning.innerHTML = "";
+  form.innerHTML = "";
+  $("#form1").fadeOut(0, function() {
+    var show = showQuestion();
+    $(this).attr('innerHTML', 'show').fadeIn(300);
+  });
+  showProgress(index);
+}
+
+function showScore() {
+  form.innerHTML = "";
+  prevButton.classList.add("hide");
+  scoreButton.classList.add("hide");
+  progressBar.classList.add("hide");
+
+  quizNotify.classList.remove("hide");
+  startButton.classList.remove("hide");
+  resumeButton.classList.add("hide");
+
+  var totalScore = 0;
+  var storedAnswers = actualPlayer.storedAnswers;
+  actualPlayer.finished = true;
+
+  var output = "";
+	var questionResult = "NA";
+
+  for (var i = 0; i < storedAnswers.length; i++) {
+    var score = parseInt(storedAnswers[i].value);
+		if (score === 1) {
+			questionResult = '<i class="fi-check green"></i>';
+
+		}
+		else {
+			questionResult = '<i class="fi-x red"></i>';
+		}
+		output = output + '<p>Question ' + (i + 1) + ': ' + questionResult + '</p> ';
+    totalScore += score;
+  }
+
+
+  if (totalScore === allQuestions.length) {
+    message.innerHTML = "Great! Your score is " + totalScore + "!<br />You can do the quiz again, although you don't really need to!";
+  }
+  else if (totalScore <= 1) {
+    message.innerHTML = "You could use a litte practice! Your score is " + totalScore + ".<br />Would you like to do the quiz again?";
+  }
+  else {
+    message.innerHTML = "Well that's not too bad! Your score is " + totalScore + ".<br />Would you like to do the quiz again?";
+  }
+
+  results.innerHTML = output;
+  actualPlayer.score = totalScore;
+  actualPlayer.storedScores.push(totalScore);
+  updateScore(totalScore);
+  updateAllScores();
+}
+
+
+//shows player's total score
+function showUserScores(e) {
+  e.preventDefault();
+  var showUserScores = document.getElementById("showUserScores");
+//  var showAllUsersScores = document.getElementById("showAllUsersScores");
+
+
+ while (showUserScores.firstChild) {
+    showUserScores.removeChild(showUserScores.firstChild);
+  }
+
+  if (mineHidden) {
+		myScores.innerHTML = "Hide my scores";
+		mineHidden = false;
+	}
+	else {
+		myScores.innerHTML = "Show my scores";
+		mineHidden = true;
+	}
+
+  var userScores = actualPlayer.storedScores;
+	var h4 = document.createElement("h4");
+	h4.innerHTML = "Your scores";
+	var string = "";
+	for (var i = 0; i < userScores.length; i++) {
+		string += userScores[i] + "<br/>";
+	}
+
+  var p = document.createElement("p");
+  p.setAttribute("id", "scores");
+
+  if (userScores.length === 0) {
+    string = "You don't have any scores yet";
+  }
+  p.classList.add("emphasis");
+  p.innerHTML = string;
+  showUserScores.appendChild(h4);
+	showUserScores.appendChild(p);
+}
+
+function updateScore(score) {
+	var showUserScores = document.getElementById("showUserScores");
+	var scores = document.getElementById("scores");
+
+	if (myScoreDisplay.classList.contains("slideInMyScore")) {
+		scores.innerHTML = "";
+		var string = "";
+		for (var i = 0; i < actualPlayer.storedScores.length; i++) {
+			string += actualPlayer.storedScores[i] + "<br/>";
+		}
+
+ 		scores.innerHTML = string;
+	}
+}
+
+function updateAllScores() {
+  if (allScoreDisplay.classList.contains("slideInAllScores")) {
+    var me = document.getElementById("me");
+    var string = "";
+    var newTotalScore = 0;
+
+    for (var i = 0; i < actualPlayer.storedScores.length; i++) {
+      newTotalScore += actualPlayer.storedScores[i];
+    }
+    //newTotalScore += newScore;
+    string = "Your total score is: <span>"  + newTotalScore + "</span>";
+    me.innerHTML = string;
+  }
+}
+
+
+//fills sortedRanking array with all quizplayers, sorted on their total scores.
+function rank() {
+  sortedRanking = [];
+  for (var i = 0; i < playerArray.length; i++) {
+    var total = 0;
+    var scores = playerArray[i].storedScores;
+    for (var j = 0; j < scores.length; j++) {
+      total += scores[j];
+      playerArray[i].total = total;
+    }
+    sortedRanking.push(playerArray[i]);
+  }
+
+  sortedRanking.sort(function(a,b){
+    return parseFloat(b.total) - parseFloat(a.total);
+  });
+  return sortedRanking;
+}
+
+//shows all the players' total scores in descending order
+function showAllUsersScores(e) {
+  e.preventDefault();
+  var showAllUsersScores = document.getElementById("showAllUsersScores");
+//  var showUserScores = document.getElementById("showUserScores");
+  showAllUsersScores.setAttribute("class", "ranking");
+
+  var sortedRanking = rank();
+
+  while (showAllUsersScores.firstChild) {
+    showAllUsersScores.removeChild(showAllUsersScores.firstChild);
+  }
+
+  if (allHidden) {
+		everyoneScores.innerHTML = "Hide all scores";
+		allHidden = false;
+	}
+	else {
+		everyoneScores.innerHTML = "Show all scores";
+		allHidden = true;
+	}
+
+  var h4 = document.createElement("h4");
+  h4.innerHTML = "Ranking list";
+  showAllUsersScores.appendChild(h4);
+
+  for (var i = 0; i < sortedRanking.length; i++) {
+    var scores = sortedRanking[i].storedScores;
+    var username = sortedRanking[i].userName;
+    var p = document.createElement("p");
+    var string = "";
+    var total = sortedRanking[i].total;
+
+    if (username === actualPlayer.userName) {
+      string = "Your total score is: <span>"  + total + "</span>";
+      if (scores.length === 0) {
+        string = "You got no scores yet";
+      }
+      p.setAttribute("class", "emphasis");
+      p.setAttribute("id", "me");
+    }
+    else {
+      string = username + "'s total score is: <span>"  + total + "</span>";
+      if (scores.length === 0) {
+        total = 0;
+        string = username + " got no scores yet <span>"  + total + "</span>";
+      }
+      p.setAttribute("class", "scores");
+    }
+
+    p.innerHTML = string;
+    showAllUsersScores.appendChild(p);
+  }
+}
+  
+})();  
+
+//init();
+
+
+</script>
