@@ -19,17 +19,8 @@ var radio2 = document.getElementById('r2');
 var radio3 = document.getElementById('r3');
 var radio4 = document.getElementById('r4');
 
-function startQuiz() {
-    quizDiv.style.display = "block";
-    resultDiv.style.display = "none";
-    startButton.style.display = "none";
-    document.getElementById("nextButton").innerHTML = "Next";
-    changeQuestion = 0;
-    localStorage.score = 0;
-
-    showQuestion();
-}
-
+var userAnswer;
+var i;
 
 var questions = [
     {
@@ -254,6 +245,17 @@ var questions = [
     }
 ];
 
+function startQuiz() {
+    quizDiv.style.display = "block";
+    resultDiv.style.display = "none";
+    startButton.style.display = "none";
+    document.getElementById("nextButton").innerHTML = "Next";
+    changeQuestion = 0;
+    localStorage.score = 0;
+
+    showQuestion();
+}
+
 function decideNextOrFinish() {
     var getBtn = document.getElementById("nextButton").innerHTML;
 
@@ -293,8 +295,6 @@ function isFormValid(){
     return formValid;
 }
 
-var i;
-
 function showQuestion() {
     document.getElementById("nextButton").addEventListener("click", decideNextOrFinish);
     for (i = changeQuestion; i < questions.length; i++) {
@@ -316,8 +316,6 @@ function showQuestion() {
         document.getElementById("nextButton").innerHTML = "Finish";
     }
 }
-
-var userAnswer;
 
 function checkAnswer() {
     var radios = document.getElementsByName("option");
