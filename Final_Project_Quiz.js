@@ -7,7 +7,6 @@ resultDiv.style.display = "none";
 
 var startButton = document.getElementById("start");
 
-var score = 0;
 var changeQuestion = 0;
 var question = document.getElementById('question');
 var option1 = document.getElementById('option1');
@@ -26,7 +25,7 @@ function startQuiz() {
     startButton.style.display = "none";
     document.getElementById("nextButton").innerHTML = "Next";
     changeQuestion = 0;
-    score = 0;
+    localStorage.score = 0;
 
     showQuestion();
 }
@@ -331,7 +330,9 @@ function checkAnswer() {
 
     for (var l = 0; l < 4; l++) {
         if (questions[i].options[l].option === userAnswer && questions[i].options[l].correct === true) {
-            score = score + 10
+            var score = parseInt(localStorage.score);
+            score = score + 10;
+            localStorage.score = score;
         }
     }
 
@@ -347,5 +348,5 @@ function showResult() {
     quizDiv.style.display = "none";
     startButton.style.display = "block";
 
-    document.getElementById('score').innerHTML = score + "%";
+    document.getElementById('score').innerHTML = localStorage.score + "%";
 }
