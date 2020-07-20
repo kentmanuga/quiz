@@ -72,15 +72,15 @@ var questions = [
         options:
             [
                 {
-                    option: '',
+                    option: "eat in the Founder's Garden",
                     correct: false
                 },
                 {
-                    option: '',
+                    option: 'do not pet Uga',
                     correct: false
                 },
                 {
-                    option: '',
+                    option: 'Do not fall down the steps of the Main Library',
                     correct: false
                 },
                 {
