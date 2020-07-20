@@ -24,89 +24,89 @@ var i;
 
 var questions = [
     {
-        question: 'HTML tags are case sensitive.',
+        question: 'Who won the Heisman Trophy in 1982?',
         options:
             [
                 {
-                    option: 'Yes',
+                    option: 'Bo Jackson',
                     correct: false
                 },
                 {
-                    option: 'No',
+                    option: 'Doug Flutie',
+                    correct: false
+                },
+                {
+                    option: 'Herschel Walker',
                     correct: true
                 },
                 {
-                    option: 'Few',
-                    correct: false
-                },
-                {
-                    option: "I don't know",
+                    option: "Archie Griffin",
                     correct: false
                 }
             ]
     },
     {
-        question: 'Which of the following tag represents the header of a section in HTML5?',
+        question: 'What year was UGA founded?',
         options:
             [
                 {
-                    option: 'section',
+                    option: '1700',
                     correct: false
                 },
                 {
-                    option: 'header',
+                    option: '1785',
                     correct: true
                 },
                 {
-                    option: 'article',
+                    option: '1802',
                     correct: false
                 },
                 {
-                    option: 'aside',
+                    option: '1757',
                     correct: false
                 }
             ]
     },
     {
-        question: 'Which of the following is correct about Web form 2.0 in HTML5?',
+        question: 'If you _______, you will not graduate.',
         options:
             [
                 {
-                    option: 'Web Forms 2.0 is an extension to the forms features found in HTML4.',
+                    option: '',
                     correct: false
                 },
                 {
-                    option: 'Form elements and attributes in HTML5 provide a greater degree of semantic mark-up than HTML4.',
+                    option: '',
                     correct: false
                 },
                 {
-                    option: 'Form elements and attributes in HTML5 remove a great deal of the need for tedious scripting and styling that was required in HTML4.',
+                    option: '',
                     correct: false
                 },
                 {
-                    option: 'All of the above',
+                    option: 'Walk under the Arch',
                     correct: true
                 }
             ]
     },
     {
-        question: 'Which of the following is true about Local Storage in HTML5?',
+        question: 'Who was UGA\'s first president?',
         options:
             [
                 {
-                    option: "HTML5 introduces the localStorage attribute which would be used to access a page's local storage area without no time limit.",
+                    option: "Michael F. Adams",
                     correct: false
                 },
                 {
-                    option: 'This local storage will be available whenever you would use that page.',
+                    option: 'Charles Melton Snelling',
                     correct: false
                 },
                 {
-                    option: 'Both of the above.',
+                    option: 'Abraham Baldwin',
                     correct: true
                 },
                 {
-                    option: 'None of the above',
+                    option: 'Omer Clyde Aderhold',
                     correct: false
                 }
             ]
