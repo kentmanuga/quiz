@@ -345,6 +345,14 @@ function showResult() {
     resultDiv.style.display = "block";
     quizDiv.style.display = "none";
     startButton.style.display = "block";
+    var message = document.getElementById('message');
 
     document.getElementById('score').innerHTML = localStorage.score + "%";
+
+    if(parseInt(localStorage.score) == 90 || parseInt(localStorage.score) == 100){
+        message.innerHTML = "Damn Good Dawg";
+    }
+    else{
+        message.innerHTML = "Something witty";
+    }
 }
