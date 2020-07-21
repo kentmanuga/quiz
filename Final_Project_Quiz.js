@@ -24,33 +24,33 @@ var i;
 
 var questions = [
     {
-        question: 'Who won the Heisman Trophy in 1982?',
+        question: 'How many Heisman Trophy winners have played for UGA?',
         options:
             [
                 {
-                    option: 'Bo Jackson',
+                    option: '1',
                     correct: false
                 },
                 {
-                    option: 'Doug Flutie',
-                    correct: false
-                },
-                {
-                    option: 'Herschel Walker',
+                    option: '2',
                     correct: true
                 },
                 {
-                    option: "Archie Griffin",
+                    option: '3',
+                    correct: false
+                },
+                {
+                    option: "4",
                     correct: false
                 }
             ]
     },
     {
-        question: 'What year was UGA founded?',
+        question: 'Although UGA was chartered in ____, classes didn’t begin until 1801',
         options:
             [
                 {
-                    option: '1700',
+                    option: '1765',
                     correct: false
                 },
                 {
@@ -58,11 +58,11 @@ var questions = [
                     correct: true
                 },
                 {
-                    option: '1802',
+                    option: '1795',
                     correct: false
                 },
                 {
-                    option: '1757',
+                    option: '1802',
                     correct: false
                 }
             ]
@@ -76,15 +76,15 @@ var questions = [
                     correct: false
                 },
                 {
-                    option: 'do not pet Uga',
+                    option: 'swim in the fountains on North Campus',
                     correct: false
                 },
                 {
-                    option: 'Do not fall down the steps of the Main Library',
+                    option: 'fall down the steps of the Main Library',
                     correct: false
                 },
                 {
-                    option: 'Walk under the Arch',
+                    option: 'walk under the Arch',
                     correct: true
                 }
             ]
@@ -112,133 +112,133 @@ var questions = [
             ]
     },
     {
-        question: 'Which of the following is correct about Server Side Events(SSE) in HTML5?',
+        question: 'How many seats are in Sanford Stadium?',
         options:
             [
                 {
-                    option: "To use Server-Sent Events in a web application, you would need to add an <eventsource> element to the document.",
+                    option: "88,500",
                     correct: false
                 },
                 {
-                    option: 'The src attribute of <eventsource> element should point to an URL which should provide a persistent HTTP connection that sends a data stream containing the events.',
+                    option: '65,345',
                     correct: false
                 },
                 {
-                    option: 'The URL would point to a PHP, PERL or any Python script which would take care of sending event data consistently.',
+                    option: '105,500',
                     correct: false
                 },
                 {
-                    option: 'All of the above',
+                    option: '92,746',
                     correct: true
                 }
             ]
     },
     {
-        question: "Which of the following is true about 'video' tag in HTML5?",
+        question: "What was UGA's first mascot?",
         options:
             [
                 {
-                    option: "MPEG4 files with H.264 video codec and AAC audio codec are supported.",
+                    option: "Horse",
                     correct: false
                 },
                 {
-                    option: 'You can use <source> tag to specify media along with media type and many other attributes.',
+                    option: 'Bulldog',
                     correct: false
                 },
                 {
-                    option: 'An video element allows multiple source elements and browser will use the first recognized format.',
+                    option: 'Chicken',
                     correct: false
                 },
                 {
-                    option: 'All of the above',
+                    option: 'Goat',
                     correct: true
                 }
             ]
     },
     {
-        question: "Which of the following attribute specifies if the user can edit the element's content or not?",
+        question: "What do the three pillars of the arch stand for?",
         options:
             [
                 {
-                    option: "editable",
+                    option: "Knowledge, education, and research",
                     correct: false
                 },
                 {
-                    option: 'contenteditable',
+                    option: 'Wisdom, justice, and moderation',
                     correct: true
                 },
                 {
-                    option: 'contextmenu',
+                    option: 'Wisdom, logic, and equality',
                     correct: false
                 },
                 {
-                    option: 'content',
+                    option: 'Knowledge, power, and wisdom',
                     correct: false
                 }
             ]
     },
     {
-        question: "Which of the following attribute triggers event when an element is dragged?",
+        question: "How many schools/colleges does UGA have?",
         options:
             [
                 {
-                    option: "ondragleave",
+                    option: "20",
                     correct: false
                 },
                 {
-                    option: 'ondrag',
+                    option: '17',
                     correct: true
                 },
                 {
-                    option: 'ondragend',
+                    option: '22',
                     correct: false
                 },
                 {
-                    option: 'ondragenter',
+                    option: '12',
                     correct: false
                 }
             ]
     },
     {
-        question: "Which of the following attribute triggers event at the start of a drag operation?",
+        question: "Which of the following is NOT an Athens landmark?",
         options:
             [
                 {
-                    option: "ondragleave",
+                    option: "The trees that owns itself",
                     correct: false
                 },
                 {
-                    option: 'ondrag',
+                    option: 'The double barreled cannon',
                     correct: false
                 },
                 {
-                    option: 'ondragover',
+                    option: 'The iron horse',
                     correct: false
                 },
                 {
-                    option: 'ondragstart',
+                    option: 'The golden bulldog',
                     correct: true
                 }
             ]
     },
     {
-        question: "Which of the following attribute triggers event when the message is triggered?",
+        question: "It is tradition to ___ when the UGA Bulldawgs win a home football game",
         options:
             [
                 {
-                    option: "onloadedmetadata",
+                    option: "rush the hedges in Sanford Stadium",
                     correct: false
                 },
                 {
-                    option: 'onloadstart',
+                    option: 'call the dawgs',
                     correct: false
                 },
                 {
-                    option: 'onmessage',
+                    option: 'ring the Chapel Bell',
                     correct: true
                 },
                 {
-                    option: 'onoffline',
+                    option: 'sing UGA\'s alma mater',
                     correct: false
                 }
             ]
@@ -350,9 +350,15 @@ function showResult() {
     document.getElementById('score').innerHTML = localStorage.score + "%";
 
     if(parseInt(localStorage.score) == 90 || parseInt(localStorage.score) == 100){
-        message.innerHTML = "Damn Good Dawg";
+        message.innerHTML = "Congratulations.  You're a Damn Good Dawg!";
+    }
+    else if(parseInt(localStorage.score) == 70 || parseInt(localStorage.score) == 80){
+        message.innerHTML = "You may be a better fit for the North Avenue Trade School.";
+    }
+    else if(parseInt(localStorage.score) == 50 || parseInt(localStorage.score) == 60){
+        message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects.";
     }
     else{
-        message.innerHTML = "Something witty";
+        message.innerHTML = "Just put on some jorts, grow a mullett, and move to Gainesville aleady.";
     }
 }
