@@ -344,11 +344,7 @@ function checkAnswer() {
 
 function showResult() {
     numberOfTries++;
-    var aScore = {
-        try: numberOfTries,
-        score: score,
-    }
-    listOfScores.push(JSON.stringify(aScore)); 
+    listOfScores.push([numberOfTries, score]); 
     localStorage.setItem("listOfScores", JSON.stringify(listOfScores)); //add listOfScores to local storage
     console.log(JSON.parse(localStorage.getItem("listOfScores")));
 
