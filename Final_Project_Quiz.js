@@ -21,6 +21,9 @@ var radio4 = document.getElementById('r4');
 
 var userAnswer;
 var i;
+var listOfScores = [];
+var numberOfTries = 0;
+var score = 0;
 
 var questions = [
     {
@@ -200,23 +203,23 @@ var questions = [
             ]
     },
     {
-        question: "Which of the following is NOT an Athens landmark?",
+        question: "Who were the first African Americans admitted to UGA?",
         options:
             [
                 {
-                    option: "The trees that owns itself",
+                    option: "Charlayne Hunter",
                     correct: false
                 },
                 {
-                    option: 'The double barreled cannon',
+                    option: 'Hamilton Holmes',
                     correct: false
                 },
                 {
-                    option: 'The iron horse',
+                    option: 'Mary Frances Early',
                     correct: false
                 },
                 {
-                    option: 'The golden bulldog',
+                    option: 'A and B',
                     correct: true
                 }
             ]
@@ -251,7 +254,7 @@ function startQuiz() {
     startButton.style.display = "none";
     document.getElementById("nextButton").innerHTML = "Next";
     changeQuestion = 0;
-    localStorage.score = 0;
+    score = 0;
 
     showQuestion();
 }
@@ -328,9 +331,7 @@ function checkAnswer() {
 
     for (var l = 0; l < 4; l++) {
         if (questions[i].options[l].option === userAnswer && questions[i].options[l].correct === true) {
-            var score = parseInt(localStorage.score);
             score = score + 10;
-            localStorage.score = score;
         }
     }
 
@@ -342,21 +343,30 @@ function checkAnswer() {
 }
 
 function showResult() {
+    numberOfTries++;
+    var aScore = {
+        try: numberOfTries,
+        score: score,
+    }
+    listOfScores.push(JSON.stringify(aScore)); 
+    localStorage.setItem("listOfScores", JSON.stringify(listOfScores)); //add listOfScores to local storage
+    console.log(JSON.parse(localStorage.getItem("listOfScores")));
+
     resultDiv.style.display = "block";
     quizDiv.style.display = "none";
     startButton.style.display = "block";
     var message = document.getElementById('message');
 
-    document.getElementById('score').innerHTML = localStorage.score + "%";
+    document.getElementById('score').innerHTML = score + "%";
 
-    if(parseInt(localStorage.score) == 90 || parseInt(localStorage.score) == 100){
+    if(parseInt(score) == 90 || parseInt(score) == 100){
         message.innerHTML = "Congratulations.  You're a Damn Good Dawg!";
     }
-    else if(parseInt(localStorage.score) == 70 || parseInt(localStorage.score) == 80){
+    else if(parseInt(score) == 70 || parseInt(score) == 80){
         message.innerHTML = "You may be a better fit for the North Avenue Trade School.";
     }
-    else if(parseInt(localStorage.score) == 50 || parseInt(localStorage.score) == 60){
-        message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects.";
+    else if(parseInt(score) == 50 || parseInt(score) == 60){
+        message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects (especially in football).";
     }
     else{
         message.innerHTML = "Just put on some jorts, grow a mullett, and move to Gainesville aleady.";
