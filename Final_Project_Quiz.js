@@ -357,14 +357,18 @@ function showResult() {
 
     if(parseInt(score) == 90 || parseInt(score) == 100){
         message.innerHTML = "Congratulations.  You're a Damn Good Dawg!";
+        graphic.innerHTML =  "<a href='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif'><img src='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif</p>";
     }
     else if(parseInt(score) == 70 || parseInt(score) == 80){
         message.innerHTML = "You may be a better fit for the North Avenue Trade School.";
+        graphic.innerHTML =  "<a href='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif'><img src='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif</p>";
     }
     else if(parseInt(score) == 50 || parseInt(score) == 60){
         message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects (especially in football).";
+        graphic.innerHTML =  "<a href='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif'><img src='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif</p>";
     }
     else{
-        message.innerHTML = "Just put on some jorts, grow a mullett, and move to Gainesville aleady.";
+        message.innerHTML = "Just put on some jorts, grow a mullett, and move to Florida aleady.";
+        graphic.innerHTML =  "<a href='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif'><img src='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif</p>";
     }
 }
