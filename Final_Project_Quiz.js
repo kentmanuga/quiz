@@ -49,7 +49,7 @@ var questions = [
             ]
     },
     {
-        question: 'Although UGA was chartered in ____, classes didn’t begin until 1801',
+        question: 'Although UGA was chartered in ____, classes didn’t begin until 1801.',
         options:
             [
                 {
@@ -71,7 +71,7 @@ var questions = [
             ]
     },
     {
-        question: 'If you _______, you will not graduate.',
+        question: 'If you _____, you will not graduate.',
         options:
             [
                 {
@@ -225,7 +225,7 @@ var questions = [
             ]
     },
     {
-        question: "It is tradition to ___ when the UGA Bulldawgs win a home football game",
+        question: "It is tradition to _____ when the UGA Bulldawgs win a home football game.",
         options:
             [
                 {
