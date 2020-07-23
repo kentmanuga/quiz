@@ -203,7 +203,7 @@ var questions = [
             ]
     },
     {
-        question: "Who were the first African Americans admitted to UGA?",
+        question: "Who was the first African American admitted to UGA?",
         options:
             [
                 {
@@ -351,6 +351,7 @@ function showResult() {
     resultDiv.style.display = "block";
     quizDiv.style.display = "none";
     startButton.style.display = "block";
+    startButton.innerHTML = "Try Again!";
     var message = document.getElementById('message');
 
     document.getElementById('score').innerHTML = score + "%";
