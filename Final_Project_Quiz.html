@@ -2,17 +2,21 @@
 <html lang="en">
 
 <head>
-    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg" class="img-fluid" alt="Responsive image" width=100%></a>
+    <a
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"
+            class="img-fluid" alt="Responsive image" width=100%></a>
     <title>Quiz Dawg</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-       input[type=radio] {
-           border: 0px;
-           width: 20%;
-           height: 1em;
-       }
+        input[type=radio] {
+            border: 0px;
+            width: 20%;
+            height: 1em;
+        }
     </style>
 </head>
 
@@ -23,47 +27,54 @@
     <br>
     <div id=button style="display: flex; align-items: center; justify-content: center;">
         <br>
-        <button style="width: 30%; height: 3em;"type="button" id="start"><strong>Start!</strong></button>
+        <button style="width: 30%; height: 3em;" type="button" id="start"><strong>Start!</strong></button>
     </div>
-            <div id="quiz" class="container">
-                <div id="question-div" style="font-size: 30px;">
-                    <span id="questions"><strong>Q:</strong> <span id="question"></span></span>
-                </div>
+    <div id="quiz" class="container">
+        <div id="question-div" style="font-size: 30px;">
+            <span id="questions"><strong>Q:</strong> <span id="question"></span></span>
+        </div>
 
-                <div id="options" style="font-size: 20px">
-                    <br>
-                    <div>
-                        <input type="radio" name="option" id="r1" value=""><label for="option" id="option1"></label>
-                    </div>
-                    
-                    <div>
-                        <input type="radio" name="option" id="r2" value=""><label for="option" id="option2"></label>
-                    </div>
-                    
-                    <div>
-                        <input type="radio" name="option" id="r3" value=""><label for="option" id="option3"></label>
-                    </div>
-                    
-                    <div>
-                        <input type="radio" name="option" id="r4" value=""><label for="option" id="option4"></label>
-                    </div>
-                </div>
-                <br>
-                <button type="button" id="nextButton" style="background-color: white;">Next</button>
+        <div id="options" style="font-size: 20px">
+            <br>
+            <div>
+                <input type="radio" name="option" id="r1" value=""><label for="option" id="option1"></label>
             </div>
 
-            <div id="results">
-                <div id="result-div-header">You Scored</div>
-                <h1 id="score"></h1>
-                <div id="message"></div>
-                <div id="graphic"></div>
+            <div>
+                <input type="radio" name="option" id="r2" value=""><label for="option" id="option2"></label>
             </div>
 
+            <div>
+                <input type="radio" name="option" id="r3" value=""><label for="option" id="option3"></label>
+            </div>
 
+            <div>
+                <input type="radio" name="option" id="r4" value=""><label for="option" id="option4"></label>
+            </div>
+        </div>
+        <br>
+        <button type="button" id="nextButton" style="background-color: white;">Next</button>
+    </div>
+
+    <div id="results">
+        <div id="result-div-header">You Scored</div>
+        <h1 id="score"></h1>
+        <div id="message"></div>
+        <div id="graphic"></div>
+        <div id="chart_div"></div>
+    </div>
+
+    <br />
+    <div id="sources">
+        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"
+            target='_blank'>
+            <p style="width:100%; text-align: center; font-size: 8px; color:gray; bottom: 0;">image source:
+                https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg
+            </p>
+        </a>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="Final_Project_Quiz.js"></script>
-    <div id="sources" style="position: relative;">
-    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"><p style="position: fixed; bottom: 0; width:100%; text-align: center; font-size: 8px; color:gray; bottom: 0;">image source: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg</p></a>
-    </div>
 </body>
 
 </html>

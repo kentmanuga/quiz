@@ -283,7 +283,7 @@ function decideNextOrFinish() {
     }
 }
 
-function isFormValid(){
+function isFormValid() {
     var radios = document.getElementsByName("option");
     var formValid = false;
     var i = 0;
@@ -344,7 +344,7 @@ function checkAnswer() {
 
 function showResult() {
     numberOfTries++;
-    listOfScores.push([numberOfTries, score]); 
+    listOfScores.push([numberOfTries, score]);
     localStorage.setItem("listOfScores", JSON.stringify(listOfScores)); //add listOfScores to local storage
     console.log(JSON.parse(localStorage.getItem("listOfScores")));
 
@@ -356,20 +356,56 @@ function showResult() {
 
     document.getElementById('score').innerHTML = score + "%";
 
-    if(parseInt(score) == 90 || parseInt(score) == 100){
+    if (parseInt(score) == 90 || parseInt(score) == 100) {
         message.innerHTML = "Congratulations.  You're a Damn Good Dawg!";
-        graphic.innerHTML =  "<a href='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif'><img src='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif</p>";
+        graphic.innerHTML = "<a href='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' target='_blank'><img src='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif</p>";
     }
-    else if(parseInt(score) == 70 || parseInt(score) == 80){
+    else if (parseInt(score) == 70 || parseInt(score) == 80) {
         message.innerHTML = "You may be a better fit for the North Avenue Trade School.";
-        graphic.innerHTML =  "<a href='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif'><img src='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif</p>";
+        graphic.innerHTML = "<a href='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' target='_blank'><img src='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif</p>";
     }
-    else if(parseInt(score) == 50 || parseInt(score) == 60){
+    else if (parseInt(score) == 50 || parseInt(score) == 60) {
         message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects (especially in football).";
-        graphic.innerHTML =  "<a href='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif'><img src='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif</p>";
+        graphic.innerHTML = "<a href='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' target='_blank'><img src='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif</p>";
     }
-    else{
+    else {
         message.innerHTML = "Just put on some jorts, grow a mullett, and move to Florida aleady.";
-        graphic.innerHTML =  "<a href='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif'><img src='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif</p>";
+        graphic.innerHTML = "<a href='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif' target='_blank'><img src='https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/fseSlavoqVi08qN7P9/giphy.gif</p>";
+    }
+
+
+    google.charts.load('current', { packages: ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawBackgroundColor);
+
+    function drawBackgroundColor() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Score');
+
+        data.addRows(JSON.parse(localStorage.getItem("listOfScores")));
+
+        var interval = 1;
+        var hTicks = [];
+        for (var i = 1; i <= numberOfTries; i = i + interval) {
+            hTicks.push(i);
+        }
+
+        var options = {
+            title: "Your Scores",
+            hAxis: {
+                title: 'Attempts',
+                ticks: hTicks
+            },
+            vAxis: {
+                title: 'Score',
+                ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            },
+            backgroundColor: '#C0C0C0',
+            colors: ['red'],
+            lineWidth: 5,
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
     }
 }
