@@ -5,19 +5,30 @@
     <title>Quiz Dawg</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         input[type=radio] {
             border: 0px;
             width: 20%;
             height: 1em;
         }
+
+        .chart {
+            width: 100%;
+            min-height: 450px;
+        }
     </style>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body class="containter" style="background-color: black; color:white">
-    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg" class="img-fluid" alt="Responsive image" width=100%>
+    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"
+        target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"
+            class="img-fluid" alt="Responsive image" width=100%>
     </a>
     <div id="header" style="background-color: rgb(186,12,47);">
         <h1 id="welcome" style="font-size: 50px; text-align: center;">How Much of a Dawg Are You?</h1>
@@ -55,23 +66,23 @@
     </div>
 
     <div id="results">
-        <div id="result-div-header">You Scored</div>
-        <h1 id="score"></h1>
-        <div id="message"></div>
-        <div id="graphic"></div>
-        <div id="chart_div"></div>
+            <div id="result-div-header">You Scored</div>
+            <h1 id="score"></h1>
+            <div id="message"></div>
+            <div id="graphic"></div>
+            <div id="chart_div" class="chart"></div>
     </div>
 
     <br />
     <div id="sources">
-        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg" target='_blank'>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg"
+            target='_blank'>
             <p style="width:100%; text-align: center; font-size: 8px; color:gray; bottom: 0;">image source:
                 https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/SanfordNorthStandsPanorama.jpg/1435px-SanfordNorthStandsPanorama.jpg
             </p>
         </a>
     </div>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="Final_Project_Quiz.js"></script>
 </body>
+<script src="Final_Project_Quiz.js"></script>
 
 </html>

@@ -25,6 +25,12 @@ var listOfScores = [];
 var numberOfTries = 0;
 var score = 0;
 
+window.onresize = function(){
+    if (i == 9) {
+        drawChart();
+    }
+};
+
 var questions = [
     {
         question: 'How many Heisman Trophy winners have played for UGA?',
@@ -374,38 +380,38 @@ function showResult() {
     }
 
 
-    google.charts.load('current', { packages: ['corechart', 'line'] });
-    google.charts.setOnLoadCallback(drawBackgroundColor);
+    google.charts.load('visualization', { packages: ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawChart);
+}
 
-    function drawBackgroundColor() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'X');
-        data.addColumn('number', 'Score');
+function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'X');
+    data.addColumn('number', 'Score');
 
-        data.addRows(JSON.parse(localStorage.getItem("listOfScores")));
+    data.addRows(JSON.parse(localStorage.getItem("listOfScores")));
 
-        var interval = 1;
-        var hTicks = [];
-        for (var i = 1; i <= numberOfTries; i = i + interval) {
-            hTicks.push(i);
-        }
-
-        var options = {
-            title: "Your Scores",
-            hAxis: {
-                title: 'Attempts',
-                ticks: hTicks
-            },
-            vAxis: {
-                title: 'Score',
-                ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-            },
-            backgroundColor: '#C0C0C0',
-            colors: ['red'],
-            lineWidth: 5,
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+    var interval = 1;
+    var hTicks = [];
+    for (var i = 1; i <= numberOfTries; i = i + interval) {
+        hTicks.push(i);
     }
+
+    var options = {
+        title: "Your Scores",
+        hAxis: {
+            title: 'Attempts',
+            ticks: hTicks
+        },
+        vAxis: {
+            title: 'Score',
+            ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        },
+        backgroundColor: '#C0C0C0',
+        colors: ['red'],
+        lineWidth: 5,
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
 }
