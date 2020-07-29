@@ -40,19 +40,19 @@ var questions = [
         options:
             [
                 {
-                    option: '1',
+                    option: 'A: 1',
                     correct: false
                 },
                 {
-                    option: '2',
+                    option: 'B: 2',
                     correct: true
                 },
                 {
-                    option: '3',
+                    option: 'C: 3',
                     correct: false
                 },
                 {
-                    option: '4',
+                    option: 'D: 4',
                     correct: false
                 }
             ]
@@ -62,19 +62,19 @@ var questions = [
         options:
             [
                 {
-                    option: '1765',
+                    option: 'A: 1765',
                     correct: false
                 },
                 {
-                    option: '1785',
+                    option: 'B: 1785',
                     correct: true
                 },
                 {
-                    option: '1795',
+                    option: 'C: 1795',
                     correct: false
                 },
                 {
-                    option: '1802',
+                    option: 'D: 1802',
                     correct: false
                 }
             ]
@@ -84,19 +84,19 @@ var questions = [
         options:
             [
                 {
-                    option: "eat in the Founder's Garden",
+                    option: "A: eat in the Founder's Garden",
                     correct: false
                 },
                 {
-                    option: 'swim in the fountains on North Campus',
+                    option: 'B: swim in the fountains on North Campus',
                     correct: false
                 },
                 {
-                    option: 'fall down the steps of the Main Library',
+                    option: 'C: fall down the steps of the Main Library',
                     correct: false
                 },
                 {
-                    option: 'walk under the Arch',
+                    option: 'D: walk under the Arch',
                     correct: true
                 }
             ]
@@ -106,19 +106,19 @@ var questions = [
         options:
             [
                 {
-                    option: 'Michael F. Adams',
+                    option: 'A: Michael F. Adams',
                     correct: false
                 },
                 {
-                    option: 'Charles Melton Snelling',
+                    option: 'B: Charles Melton Snelling',
                     correct: false
                 },
                 {
-                    option: 'Abraham Baldwin',
+                    option: 'C: Abraham Baldwin',
                     correct: true
                 },
                 {
-                    option: 'Omer Clyde Aderhold',
+                    option: 'D: Omer Clyde Aderhold',
                     correct: false
                 }
             ]
@@ -128,19 +128,19 @@ var questions = [
         options:
             [
                 {
-                    option: '88,500',
+                    option: 'A: 88,500',
                     correct: false
                 },
                 {
-                    option: '65,345',
+                    option: 'B: 65,345',
                     correct: false
                 },
                 {
-                    option: '105,500',
+                    option: 'C: 105,500',
                     correct: false
                 },
                 {
-                    option: '92,746',
+                    option: 'D: 92,746',
                     correct: true
                 }
             ]
@@ -150,19 +150,19 @@ var questions = [
         options:
             [
                 {
-                    option: 'Horse',
+                    option: 'A: Horse',
                     correct: false
                 },
                 {
-                    option: 'Bulldog',
+                    option: 'B: Bulldog',
                     correct: false
                 },
                 {
-                    option: 'Chicken',
+                    option: 'C: Chicken',
                     correct: false
                 },
                 {
-                    option: 'Goat',
+                    option: 'D: Goat',
                     correct: true
                 }
             ]
@@ -172,19 +172,19 @@ var questions = [
         options:
             [
                 {
-                    option: 'Knowledge, education, and research',
+                    option: 'A: Knowledge, education, and research',
                     correct: false
                 },
                 {
-                    option: 'Wisdom, justice, and moderation',
+                    option: 'B: Wisdom, justice, and moderation',
                     correct: true
                 },
                 {
-                    option: 'Wisdom, logic, and equality',
+                    option: 'C: Wisdom, logic, and equality',
                     correct: false
                 },
                 {
-                    option: 'Knowledge, power, and wisdom',
+                    option: 'D: Knowledge, power, and wisdom',
                     correct: false
                 }
             ]
@@ -194,19 +194,19 @@ var questions = [
         options:
             [
                 {
-                    option: '20',
+                    option: 'A: 20',
                     correct: false
                 },
                 {
-                    option: '17',
+                    option: 'B: 17',
                     correct: true
                 },
                 {
-                    option: '22',
+                    option: 'C: 22',
                     correct: false
                 },
                 {
-                    option: '12',
+                    option: 'D: 12',
                     correct: false
                 }
             ]
@@ -216,19 +216,19 @@ var questions = [
         options:
             [
                 {
-                    option: 'Charlayne Hunter',
+                    option: 'A: Charlayne Hunter',
                     correct: false
                 },
                 {
-                    option: 'Hamilton Holmes',
+                    option: 'B: Hamilton Holmes',
                     correct: false
                 },
                 {
-                    option: 'Mary Frances Early',
+                    option: 'C: Mary Frances Early',
                     correct: false
                 },
                 {
-                    option: 'A and B',
+                    option: 'D: A and B',
                     correct: true
                 }
             ]
@@ -238,19 +238,19 @@ var questions = [
         options:
             [
                 {
-                    option: 'rush the hedges in Sanford Stadium',
+                    option: 'A: rush the hedges in Sanford Stadium',
                     correct: false
                 },
                 {
-                    option: 'call the dawgs',
+                    option: 'B: call the dawgs',
                     correct: false
                 },
                 {
-                    option: 'ring the Chapel Bell',
+                    option: 'C: ring the Chapel Bell',
                     correct: true
                 },
                 {
-                    option: 'sing UGA\'s alma mater',
+                    option: 'D: sing UGA\'s alma mater',
                     correct: false
                 }
             ]
