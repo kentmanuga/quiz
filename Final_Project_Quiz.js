@@ -1,13 +1,13 @@
-document.getElementById("start").addEventListener("click", startQuiz);
+//add event listener to start button
+var startButton = document.getElementById("start");
+startButton.addEventListener("click", startQuiz);
 
+//set various global variables that are used throughout the javascript code
 var quizDiv = document.getElementById('quiz');
 var resultDiv = document.getElementById("results");
 quizDiv.style.display = "none";
 resultDiv.style.display = "none";
 
-var startButton = document.getElementById("start");
-
-var changeQuestion = 0;
 var question = document.getElementById('question');
 var option1 = document.getElementById('option1');
 var option2 = document.getElementById('option2');
@@ -19,18 +19,21 @@ var radio2 = document.getElementById('r2');
 var radio3 = document.getElementById('r3');
 var radio4 = document.getElementById('r4');
 
+var changeQuestion = 0;
 var userAnswer;
 var i;
 var listOfScores = [];
 var numberOfTries = 0;
 var score = 0;
 
+//This is used to make the chart responsive on mobile
 window.onresize = function(){
     if (i == 9) {
         drawChart();
     }
 };
 
+//array of questions
 var questions = [
     {
         question: 'How many Heisman Trophy winners have played for UGA?',
@@ -49,7 +52,7 @@ var questions = [
                     correct: false
                 },
                 {
-                    option: "4",
+                    option: '4',
                     correct: false
                 }
             ]
@@ -103,7 +106,7 @@ var questions = [
         options:
             [
                 {
-                    option: "Michael F. Adams",
+                    option: 'Michael F. Adams',
                     correct: false
                 },
                 {
@@ -125,7 +128,7 @@ var questions = [
         options:
             [
                 {
-                    option: "88,500",
+                    option: '88,500',
                     correct: false
                 },
                 {
@@ -147,7 +150,7 @@ var questions = [
         options:
             [
                 {
-                    option: "Horse",
+                    option: 'Horse',
                     correct: false
                 },
                 {
@@ -169,7 +172,7 @@ var questions = [
         options:
             [
                 {
-                    option: "Knowledge, education, and research",
+                    option: 'Knowledge, education, and research',
                     correct: false
                 },
                 {
@@ -191,7 +194,7 @@ var questions = [
         options:
             [
                 {
-                    option: "20",
+                    option: '20',
                     correct: false
                 },
                 {
@@ -213,7 +216,7 @@ var questions = [
         options:
             [
                 {
-                    option: "Charlayne Hunter",
+                    option: 'Charlayne Hunter',
                     correct: false
                 },
                 {
@@ -235,7 +238,7 @@ var questions = [
         options:
             [
                 {
-                    option: "rush the hedges in Sanford Stadium",
+                    option: 'rush the hedges in Sanford Stadium',
                     correct: false
                 },
                 {
@@ -254,6 +257,7 @@ var questions = [
     }
 ];
 
+//start the quiz
 function startQuiz() {
     quizDiv.style.display = "block";
     resultDiv.style.display = "none";
@@ -265,11 +269,12 @@ function startQuiz() {
     showQuestion();
 }
 
+//decide if you're on questions 1-9 or on the last one
 function decideNextOrFinish() {
     var getBtn = document.getElementById("nextButton").innerHTML;
 
     if (getBtn === "Next") {
-        if (!isFormValid()) {
+        if (!hasAnswered()) {
             alert("You must choose any Option");
         }
         else {
@@ -279,7 +284,7 @@ function decideNextOrFinish() {
         }
     }
     else if (getBtn === 'Finish') {
-        if (!isFormValid()) {
+        if (!hasAnswered()) {
             alert("You must choose any Option");
         }
         else {
@@ -289,21 +294,23 @@ function decideNextOrFinish() {
     }
 }
 
-function isFormValid() {
+//checks if you've answered a question when you click 'next' or 'finish'
+function hasAnswered() {
     var radios = document.getElementsByName("option");
-    var formValid = false;
+    var answered = false;
     var i = 0;
 
-    while (!formValid && i < radios.length) {
+    while (!answered && i < radios.length) {
         if (radios[i].checked) {
-            formValid = true;
+            answered = true;
         }
         i++;
     }
 
-    return formValid;
+    return answered;
 }
 
+//show the question
 function showQuestion() {
     document.getElementById("nextButton").addEventListener("click", decideNextOrFinish);
     for (i = changeQuestion; i < questions.length; i++) {
@@ -326,6 +333,7 @@ function showQuestion() {
     }
 }
 
+//check if the answer is correct or incorrect
 function checkAnswer() {
     var radios = document.getElementsByName("option");
 
@@ -348,6 +356,7 @@ function checkAnswer() {
     }
 }
 
+//show results
 function showResult() {
     numberOfTries++;
     listOfScores.push([numberOfTries, score]);
@@ -362,6 +371,7 @@ function showResult() {
 
     document.getElementById('score').innerHTML = score + "%";
 
+    //show message and gif depending on score
     if (parseInt(score) == 90 || parseInt(score) == 100) {
         message.innerHTML = "Congratulations.  You're a Damn Good Dawg!";
         graphic.innerHTML = "<a href='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' target='_blank'><img src='https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/4NcZd4mbuB3FYrltvb/source.gif</p>";
@@ -371,7 +381,7 @@ function showResult() {
         graphic.innerHTML = "<a href='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' target='_blank'><img src='https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media1.giphy.com/media/1fowHgj5JNotFwFdjv/giphy.gif?cid=ecf05e47a2225e01b92375a9caa75c5a4f8bf0dbcdc209a8&rid=giphy.gif</p>";
     }
     else if (parseInt(score) == 50 || parseInt(score) == 60) {
-        message.innerHTML = "I've heard that Auburn usually takes UGA\'s rejects (especially in football).";
+        message.innerHTML = "I've heard that Auburn usually takes UGA's rejects (especially in football).";
         graphic.innerHTML = "<a href='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' target='_blank'><img src='https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif' class='img-fluid' alt='Responsive image'></a><p style='font-size: 8px; color: gray;'>image source: https://media3.giphy.com/media/kgS4DYOnNRcmwlmEOB/giphy.gif?cid=ecf05e4731f725388a82300b0bbeb99f6ba7134b82ecab31&rid=giphy.gif</p>";
     }
     else {
@@ -384,6 +394,7 @@ function showResult() {
     google.charts.setOnLoadCallback(drawChart);
 }
 
+//use Google API to render chart each time you finish the quiz
 function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'X');
